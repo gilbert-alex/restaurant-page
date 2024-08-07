@@ -14,6 +14,18 @@ module.exports = {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
+            {
+                test: /\.(png|svg|jpg?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            fallback: 'file-loader',
+                        },
+                    },
+                ],
+            },
         ],
     },
     plugins: [

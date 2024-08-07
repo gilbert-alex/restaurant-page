@@ -1,3 +1,51 @@
-p {
-    border: 1px solid red;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: grid;
+    grid-template: 200px / repeat(4, 1fr);
+
+
+    nav {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    div {
+        grid-area: 1 / 2 / 2 / 4;
+        justify-self: center;
+        align-self: center;
+
+        > img {
+            height: 200px;
+            width: auto;
+        }
+    }
+
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-items: flex-start;
+}
+
+.item {
+    font-weight: 700;
+    font-size: larger;
+    text-transform: uppercase;
+}
+
+.description {
+    font-size: medium;
+    text-transform: capitalize;
+}
+
+.price {
+    font-style: italic;
 }
