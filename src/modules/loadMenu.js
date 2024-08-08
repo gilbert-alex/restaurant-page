@@ -1,34 +1,26 @@
 // loadMenu.js
 
-// Append csv menu item data to html '#content' container.
-// .csv headers will become css classes.
-// Side effect only. No return value.
+// Load csv data to an html container
+// Supported file type: .csv
+// CSV headers will become html class values
+// No return value -- Side effect only
+
+// helper modules
+import {addItem, clearContent} from './helpers'
 
 
-const addItem = function (headers, item) {
-    const content = document.getElementById('content');
+const loadMenu = function (container, menu) {
 
-    const div = document.createElement('div');
-    div.classList.add('item');
+    clearContent(container);
 
-    item.map( (i, index) => {
+    const headers = menu[0];
 
-        const p = document.createElement('p');
-        p.classList.add(headers[index]);
-        p.textContent = i;
-        div.appendChild(p);
-    })
-
-    content.appendChild(div);
-};
-
-
-const loadMenu = function (menu) {
     menu.map( (item, index) => {
+        // skip header row
         if (index === 0) {
             return;
         }
-        addItem(menu[0], item);
+        container.appendChild(addItem(headers, item));
     });
 }
 

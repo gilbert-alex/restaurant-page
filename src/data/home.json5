@@ -1,6 +1,6 @@
 {
     // data for home screen
-    title: 'The Taco Shack Home Screen',
-    address: '123 some street, somewhere, usa',
+    title: 'The Taco Shack',
+    address: '123 Some Street, Somewhere, USA',
     phone: '123-456-7890',
 }

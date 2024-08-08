@@ -1,47 +1,41 @@
-// main js entry point 
+// js entry point 
 
-// assets
+// Assets
 import './style.css';
 import Logo from './images/The Taco Shack_transparent-.png';
 import Menu from './data/menu.csv';
 import Home from './data/home.json5';
+import About from './data/about.json5';
 
-// modules
+// Modules
 import loadLogo from './modules/loadLogo.js'
 import loadMenu from './modules/loadMenu.js'
-import loadHome from './modules/loadHome.js'
+import loadJson from './modules/loadJson.js'
+
+// HTML elements
+const nav = document.querySelector('nav');
+const content = document.getElementById('content');
 
 // initialize page
 loadLogo(Logo);
-loadMenu(Menu);
+loadMenu(content, Menu);
 
-// refresh tab content 
+// refresh content on tab clicks
 const navEventHandler = () => {
-    const nav = document.querySelector('nav');
 
     nav.addEventListener('click', e => {
         const name = e.target.getAttribute('name');
 
-        clearContent();
-
         if (name === 'home') {
-            loadHome(Home);
+            loadJson(content, Home);
         } else if (name === 'menu') {
-            loadMenu(Menu);
+            loadMenu(content, Menu);
         } else if (name === 'about') {
-            console.log('load about');
+            loadJson(content, About);
         } else {
             console.log('unrecognized button');
         }
     })
-}
-
-const clearContent = () => {
-    const content = document.getElementById('content');
-
-    while (content.firstChild) {
-        content.removeChild(content.lastChild);
-    };
 }
 
 navEventHandler();
