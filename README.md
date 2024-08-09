@@ -1,5 +1,7 @@
 # restaurant-page
 
+add GH script 'publish' to push to pages deployment.
+
 ### Contents:
 ```text
 restaurant-page/

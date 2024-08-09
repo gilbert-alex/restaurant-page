@@ -39,3 +39,4 @@ const navEventHandler = () => {
 }
 
 navEventHandler();
+console.log('test');
